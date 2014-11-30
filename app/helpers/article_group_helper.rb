@@ -1,0 +1,2 @@
+module ArticleGroupHelper
+end

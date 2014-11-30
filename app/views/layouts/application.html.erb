@@ -2,13 +2,69 @@
 <html>
 <head>
   <title>Faircards</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+    <div id="wrapper">
+
+        <header>
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner nav-color">
+                    <div class="container-fluid navbar-color">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/">faircards</a>
+
+                        <div class="nav-collapse">
+                            <ul class="nav">
+                                <li class="home-menu"><a href="/"><strong>Home</strong></a></li>
+                                <li class="cards-menu"><a href="/cards"><strong>Greeting Cards</strong></a></li>
+                                <li class="more-menu dropdown">
+                                    <a id="drop1" role="button" data-toggle="dropdown" href="/more"><strong>More Articles</strong><span class="caret"></span></a>
+                                    <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop1">
+            
+                                        <li role="presentation">
+                                        <a role="menuitem" tabindex="-1" href="/posts">book marks</a>
+                                        </li>
+                                    
+                                        <li role="presentation">
+                                        <a role="menuitem" tabindex="-1" href="/blog">doy bags</a>
+                                        </li>
+
+                                        <li role="presentation">
+                                        <a role="menuitem" tabindex="-1" href="/blog">mini magnets</a>
+                                        </li>
+                       
+                                    </ul>
+                                </li>
+                                <li class="fairtrade-menu"><a href="/fairtrade"><strong>Fair Trade</strong></a></li>
+                                <li class="contact-menu"><a href="/contact"><strong>Contact</strong></a></li>
+                                <li class="buy-menu"><a href="/buy"><strong>Buy</strong></a></li> 
+                            </ul>
+                         
+                        </div>
+
+                    </div>                 
+                </div>
+            </div>
+
+        </header>
+
+        <%= yield %>
+
+        <footer>
+            <div class="copyright">
+                <p>&copy; 2014, Copyright Andrea Trapp</p>
+            </div>
+        </footer>
+
+    </div>
 
 </body>
 </html>

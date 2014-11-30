@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
  
- root "main#home", :as => :root
+  resources :articles
+  resources :article_groups
+  resources :manufacturers
+  resources :countries
+
+
+  root "main#home", :as => :root
   
 end
