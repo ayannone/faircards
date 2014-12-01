@@ -1,1 +1,21 @@
-_form.html.erb
+<%= form_for(@article_group) do |f| %>
+
+    <% if @article_group.errors.any? %>
+        <div class="error-explanation">
+         <h2> <%= pluralize(@article_group.errors.count, "error")%> prevented this class from being saved </h2>
+         <ul>
+             <% @article_group.errors.full_messages.each do |msg| %>
+               <li><%= msg %></li>
+             <%end%>
+         </ul>
+        </div>
+    <%end%>
+
+    <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %><br>
+    </p>
+
+    <%= f.submit %>
+
+<% end %>

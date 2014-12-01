@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130153508) do
+ActiveRecord::Schema.define(version: 20141201114809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,11 +26,15 @@ ActiveRecord::Schema.define(version: 20141130153508) do
     t.string   "article_number"
     t.string   "title"
     t.text     "description"
-    t.decimal  "price",           precision: 8, scale: 2
-    t.integer  "articlegroup_id"
+    t.decimal  "price",               precision: 8, scale: 2
+    t.integer  "article_group_id"
     t.integer  "manufacturer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "artpic_file_name"
+    t.string   "artpic_content_type"
+    t.integer  "artpic_file_size"
+    t.datetime "artpic_updated_at"
   end
 
   create_table "countries", force: true do |t|

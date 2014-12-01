@@ -3,6 +3,12 @@
 <table>
   <thead>
     <tr>
+      <th>Article Number</th>
+      <th>Title</th>
+      <th class="description_field">Description</th>
+      <th>Price</th>
+      <th>Article Group</th>
+      <th>Manufacturer</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -10,6 +16,12 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
+        <td><%= article.article_number %></td>
+        <td><%= article.title %></td>
+        <td><%= article.description %>/td>
+        <td><%= article.price %></td>
+        <td><%= article.article_group_id %></td>
+        <td><%= article.manufacturer_id %></td>
         <td><%= link_to 'Show', article %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
         <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>

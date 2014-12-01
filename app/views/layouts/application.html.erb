@@ -24,7 +24,7 @@
                         <div class="nav-collapse">
                             <ul class="nav">
                                 <li class="home-menu"><a href="/"><strong>Home</strong></a></li>
-                                <li class="cards-menu"><a href="/cards"><strong>Greeting Cards</strong></a></li>
+                                <li class="cards-menu"><a href="/articles"><strong>Greeting Cards</strong></a></li>
                                 <li class="more-menu dropdown">
                                     <a id="drop1" role="button" data-toggle="dropdown" href="/more"><strong>More Articles</strong><span class="caret"></span></a>
                                     <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop1">
@@ -44,7 +44,6 @@
                                     </ul>
                                 </li>
                                 <li class="fairtrade-menu"><a href="/fairtrade"><strong>Fair Trade</strong></a></li>
-                                <li class="contact-menu"><a href="/contact"><strong>Contact</strong></a></li>
                                 <li class="buy-menu"><a href="/buy"><strong>Buy</strong></a></li> 
                             </ul>
                          
@@ -56,12 +55,20 @@
 
         </header>
 
-        <%= yield %>
+        <div id="content">
+
+            <%= yield %>
+
+        </div>
 
         <footer>
-            <div class="copyright">
-                <p>&copy; 2014, Copyright Andrea Trapp</p>
-            </div>
+            <div class="pull-left copyright">&copy; 2014, Copyright Andrea Trapp |</div>
+            <div class="pull-left"><%= link_to "Administration", admin_panel_path %></div>
+           
+            <div class="pull-right"><%= link_to "Terms of Service", terms_of_service_path %></div>
+            <div class="pull-right"><%= link_to "Contact", contact_path %> |</div>
+            <div class="pull-right"><%= link_to "About", about_path %> |</div>
+            
         </footer>
 
     </div>

@@ -12,6 +12,38 @@
   <% end %>
 
   <div class="actions">
+    <%= f.label "Article number" %>
+    <%= f.text_field :article_number %>
+
+    <%= f.label :title  %>
+    <%= f.text_field :title %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description, rows: 5, cols: 100 %>
+
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+
+    <%= f.label "Article group" %>
+    <%= f.collection_select :article_group_id, ArticleGroup.order(:name), :id, :name%>
+
+    <%= f.label "Manufacturer" %>
+    <%= f.collection_select :manufacturer_id, Manufacturer.order(:name), :id, :name%>
+    <br />
+
+    <p>
+      <%= f.label "Article picture" %>
+          <% if @article.artpic != nil %>    
+              <div class="artpic_medium">
+                  <%= image_tag @article.artpic.url(:medium) %>
+              </div>
+          <% end %>
+      <%= f.file_field :artpic %> 
+      <a href="/articles/<%= @article.id %>/delete_artpic"><button>delete Picture</button></a>  
+    </p>
+
+    <br />
     <%= f.submit %>
   </div>
+
 <% end %>

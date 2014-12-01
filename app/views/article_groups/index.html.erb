@@ -1,1 +1,21 @@
-index.html.erb
+<h2>List all Article Groups</h2>
+
+<% i=1 %>
+<% @article_groups.each do |article_group| %>
+  <tbody>
+    <tr>
+      <td><strong><%= i %></strong></td> 
+      <td><strong><%= article_group.name %></strong></td>
+      <td><%= link_to 'Show', article_group_path(article_group) %></td>
+
+      <!-- implementing cancan later -->
+      <td><%= link_to 'Edit', edit_article_group_path(article_group) %></td>
+      <!-- implementing cancan later  -->
+      <td><%= link_to 'Delete', article_group_path(article_group), method: :delete, data: {confirm: 'Are you sure ?'} %></td>
+
+    </tr>
+  </tbody>
+  <hr>
+<%i +=1 %>
+<% end %>
+</table>

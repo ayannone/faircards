@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+
   end
 
   # GET /articles/new
@@ -19,6 +20,9 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+
+    @article = Article.find(params[:id])
+  
   end
 
   # POST /articles
@@ -40,15 +44,30 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-    respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
-      else
-        format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+
+    @article = Article.find(params[:id])
+    
+    if @article.update(article_params)
+      
+      @article.save    
+    
+      redirect_to @article
+    else
+     
+      render 'edit'
     end
+
+
+
+    # respond_to do |format|
+    #   if @article.update(article_params)
+    #     format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @article }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @article.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /articles/1
@@ -61,6 +80,12 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def delete_artpic
+    @article.artpic = nil
+    @article.save
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
@@ -69,6 +94,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params[:article]
+      params.require(:article).permit(:article_number,:title,:description,:price,:article_group_id,:manufacturer_id,:artpic)
     end
 end
