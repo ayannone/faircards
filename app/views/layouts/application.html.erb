@@ -24,7 +24,7 @@
                         <div class="nav-collapse">
                             <ul class="nav">
                                 <li class="home-menu"><a href="/"><strong>Home</strong></a></li>
-                                <li class="cards-menu"><a href="/articles"><strong>Greeting Cards</strong></a></li>
+                                <li class="cards-menu"><a href="/greeting_cards"><strong>Greeting Cards</strong></a></li>
                                 <li class="more-menu dropdown">
                                     <a id="drop1" role="button" data-toggle="dropdown" href="/more"><strong>More Articles</strong><span class="caret"></span></a>
                                     <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop1">
@@ -60,7 +60,8 @@
             <%= yield %>
 
         </div>
-
+        
+        <div class="clearfix"></div>
         <footer>
             <div class="pull-left copyright">&copy; 2014, Copyright Andrea Trapp |</div>
             <div class="pull-left"><%= link_to "Administration", admin_panel_path %></div>

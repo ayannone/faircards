@@ -1,1 +1,14 @@
-greeting_cards.html.erb
+<h1>Greeting cards</h1>
+
+<% @articles.each do |article| %>
+
+  <div class="article_container pull-left">
+    <div><%= image_tag article.artpic.url(:medium) %></div>
+    <h4><%= article.title %></h4>
+    <p class="description_field"><%= article.description %></p>
+    <p><%= article.price %></p>
+    <p><%= article.manufacturer_id %></p>
+  </div>
+
+<% end %>
+
