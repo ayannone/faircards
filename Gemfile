@@ -53,3 +53,9 @@ gem "twitter-bootstrap-rails"
 gem 'paperclip'
 gem "aws-sdk"
 
+gem 'omniauth'
+gem 'devise'
+
+gem 'letsrate' #error when run 'rails g letsrate User' => letsrate_generator.rb:37:in `create_migration': wrong number of arguments (3 for 0) (ArgumentError)
+
+gem 'jquery-fileupload-rails'

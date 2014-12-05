@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
  
+  post '/rate' => 'rater#create', :as => 'rate'
+  devise_for :users
   resources :articles
   resources :article_groups
   resources :manufacturers
   resources :countries
+  resources :article_packages
 
 
 

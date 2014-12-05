@@ -6,7 +6,7 @@ $(function(){
       // Only process image files.
       if (f.type.match('image.*')) {
         var reader = new FileReader();
-        reader.onload = (function(theFile) {
+        reader.onload = (function(File) {
           return function(e) {
             // alert(e.target.result);
             document.getElementById("artpic_display").src=e.target.result;

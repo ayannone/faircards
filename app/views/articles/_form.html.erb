@@ -40,7 +40,9 @@
       <% else%>
         <%= image_tag @article.artpic.url(:medium), id:"artpic_display"%>
       <% end %>
-      <%= f.file_field :artpic, id:"artpic_select_button" %>     
+      # <%= f.file_field :artpic, id:"artpic_select_button" %>  
+      <%= f.file_field :artpic, name: @article[artpic]  %>  
+
       <a href="/articles/<%= @article.id %>/delete_artpic"><button>delete Picture</button></a>  
     </p>
 

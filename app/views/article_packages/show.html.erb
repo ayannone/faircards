@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<% @article_package.pictures.each do |picture| %>
+
+<!--     <%= image_tag picture.image.url %>
+    <%= image_tag picture.image.url(:medium) %> -->
+    <%= image_tag picture.image.url(:thumb) %>
+
+<% end %>
+
+<!-- <%= link_to 'Edit', edit_article_package_path(@article_package) %> | -->
+<%= link_to 'Back', article_packages_path %>
