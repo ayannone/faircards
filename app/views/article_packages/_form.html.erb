@@ -33,7 +33,31 @@
            for paperclip!!
            file_field_tag, since images is not a 'article package' attribute
        -->
-      <%= file_field_tag "images[]", type: :file, multiple: true %>
+      <p>     
+
+        <% if @article_package.pictures.length==0 %>       
+          <%= image_tag 'placeholder.png' %>
+        <% else%>
+          <% @article_package.pictures.each do |picture| %>
+            <%= image_tag picture.image.url(:thumb)%>
+
+
+<!-- >>>>>>>>>   I want to be able to delete selected images from the article package
+                 !!! does NOT work yet -->
+
+            <%= f.label :image_delete do %>
+              <%= f.check_box :image_delete %>
+              Delete image
+            <% end %>
+          <% end %>          
+        <% end %>
+
+<!-- <<<<<<<<<<<<<<<<<<<<<<< -->
+
+        <%= file_field_tag "images[]", type: :file, multiple: true, id:"pics_select_button" %>
+        <output id="list"></output>
+      </p>
+
     </div>
   </div>
 
