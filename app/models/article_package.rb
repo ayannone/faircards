@@ -1,7 +1,7 @@
 class ArticlePackage < ActiveRecord::Base
   # has_many  :articles
   has_many :pictures, :dependent => :destroy
-
+  
 ##############################################################
 # delete of image that is being hold in the picture ojbect, does NOT work yet
   before_save :destroy_image?
@@ -19,6 +19,5 @@ private
     self.image.clear if @image_delete == "1"
   end
 ##############################################################
-
 
 end

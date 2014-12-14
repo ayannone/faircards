@@ -1,5 +1,7 @@
 class ArticlePackagesController < ApplicationController
 
+
+  
   # an article package bundles different articles as a packages, e.g. "Christmas Cards Selection"
   # for a special price
 
