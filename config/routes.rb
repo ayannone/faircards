@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
  
-  post '/rate' => 'rater#create', :as => 'rate'
+  root "main#home", :as => :root
+
   devise_for :users
   resources :articles
   resources :article_groups
@@ -8,10 +9,10 @@ Rails.application.routes.draw do
   resources :countries
   resources :article_packages
 
+  # resources :pictures, only: [:index, :create]
+  resources :pictures
 
 
-
-  root "main#home", :as => :root
 
   get '/about' => 'main#about', as: :about
   get '/contact' => 'main#contact', as: :contact

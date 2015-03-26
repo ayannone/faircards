@@ -54,6 +54,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    dropzonejs-rails (0.5.3)
+      rails (> 3.1)
     erubis (2.7.0)
     execjs (2.2.2)
     hashie (2.1.2)
@@ -62,14 +64,12 @@ GEM
     jbuilder (2.2.4)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
-    jquery-fileupload-rails (0.4.1)
-      actionpack (>= 3.1)
-      railties (>= 3.1)
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.3)
+      railties (>= 3.2.16)
     json (1.8.1)
-    letsrate (1.0.9)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -78,6 +78,7 @@ GEM
     mini_portile (0.6.0)
     minitest (5.4.2)
     multi_json (1.10.1)
+    nested_form (0.3.2)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     omniauth (1.2.1)
@@ -188,10 +189,11 @@ DEPENDENCIES
   aws-sdk
   coffee-rails (~> 4.0.0)
   devise
+  dropzonejs-rails
   jbuilder (~> 2.0)
-  jquery-fileupload-rails
   jquery-rails
-  letsrate
+  jquery-ui-rails
+  nested_form
   omniauth
   paperclip
   pg

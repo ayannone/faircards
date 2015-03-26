@@ -1,0 +1,4 @@
+<h3>All uploaded pictures</h3>
+<% @pictures.each do |picture| %>
+  <div class="img-thumbnail"><%= image_tag picture.image.url(:thumb), alt: picture.image.url(:thumb) %></div>
+<% end %>

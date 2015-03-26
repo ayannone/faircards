@@ -2,5 +2,66 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.box .onhover {display: none;}
-.box:hover .onhover {display: block;}
+/*.box .onhover {display: none;}
+.box:hover .onhover {display: block;}*/
+
+/*#dropzone {
+  width: 400px;
+  height: 200px;
+  font-weight: bold;
+  text-align: center;
+  padding: 1em 0;
+  margin: 1em 0;
+  color: #555;
+  border: 2px dashed #555;
+  border-radius: 7px;
+  cursor: default;
+}*/
+
+#dropzone.hover {
+  color: #f00;
+/*  border-color: #f00;
+  border-style: solid;
+  box-shadow: inset 0 3px 4px #888;*/
+}
+
+/**************************************/
+/*****   styling for index view   *****/
+
+div.article_packages {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: gold;
+}
+.article_packages ul {
+  list-style-type: none;
+}
+.article_packages div {
+  margin: 10px;
+}
+
+#article_packages_header{
+  border: 1px solid grey;
+  background-color: lightblue;
+}
+
+.article_packages_image{
+  float: left;
+  background-color: white;
+  padding: 10px;
+}
+
+#article_packages_buttons{
+  clear: both;
+  margin-left: 20px;
+  padding-top: 20px;
+  /*background-color: red;*/
+}
+
+.article_packages_image_original{
+  height: 30px;
+  width: 300px;
+  background-color: lightgrey;
+}
+
+/**************************************/

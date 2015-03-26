@@ -1,0 +1,8 @@
+
+<%= "Code: #{@picture.code}" %>
+
+<%= form_for @picture, multipart: true, html: {class: :dropzone, id: 'picture-dropzone'} do |f| %>
+    <%= f.hidden_field :code %>    
+<% end %>
+
+<button type='submit'>Create Pictures</button>

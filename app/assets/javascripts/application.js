@@ -12,7 +12,23 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-fileupload/basic
-//= require jquery-fileupload/vendor/tmpl
+//= require dropzone
 //= require twitter/bootstrap
 //= require_tree .
+
+
+Dropzone.options.pictureDropzone = {
+  paramName: "picture[image]",
+  maxFilesize: 2,
+  addRemoveLinks: true,
+  init: function() {
+    return this.on('removedfile', function(file) {
+      if (file.xhr) {
+        return $.ajax({
+          url: "" + ($("#picture-dropzone").attr("action")) + "/" + (JSON.parse(file.xhr.response).id),
+          type: 'DELETE'
+        });
+      }
+    });
+  }
+};

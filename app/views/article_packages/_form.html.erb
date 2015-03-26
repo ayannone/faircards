@@ -1,4 +1,15 @@
-<%= form_for @article_package, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
+<%= form_for @picture, multipart: true, html: {class: :dropzone, id: 'picture-dropzone'} do |p| %>
+    <%= p.hidden_field :code %>    
+<% end %>
+
+
+<%= nested_form_for @article_package, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
+
+
+
+<hr>
+
+
   <div class="control-group">
     <%= f.label "Article Package Number", :class => 'control-label' %>
     <div class="controls">
@@ -24,32 +35,38 @@
     </div>
   </div>  
 
+  <h5>datepicker: Widget given by jQuery UI</h5>
+  <p>I installed jQuery UI via 1) adding <strong>gem 'jquery-ui-rails' </strong> and 2) adding <strong>//= require jquery-ui </strong> in application.js</p>
+  <div class="datepicker"></div>
+
   <div class="control-group">
     <%= f.label :pictures, :class => 'control-label' %>
     <div class="controls">
-      <p>     
+      <p>
+<!--         <div id="dropzone">   
+          <h5>Drag files here</h5>
+        </div> -->
+<!--  <h5>Drag files here</h5>
+ 
 
-        <% if @article_package.pictures.length==0 %>       
-          <%= image_tag 'placeholder.png' %>
-        <% else%>
+
+<hr>
+        <% if @article_package.pictures.length!=0 %>
           <% @article_package.pictures.each do |picture| %>
-            <%= image_tag picture.image.url(:thumb)%>
-            <%= picture.image.path(:thumb) %>
+            <p>
+              <%= image_tag picture.image.url(:thumb)%>
+              <%= picture.image.path(:thumb) %>
+            </p>
 
+            <!-- I want to be able to delete selected images from the article package
+                             !!! does NOT work yet -->
+            <!-- Delete image -->
 
-<!-- >>>>>>>>>   I want to be able to delete selected images from the article package
-                 !!! does NOT work yet -->
-
-            <%= f.label :image_delete do %>
-              <%= f.check_box(:image_delete) %>
-              Delete image
-            <% end %>
           <% end %>          
         <% end %>
-
-<!-- <<<<<<<<<<<<<<<<<<<<<<< -->
-
-        <%= file_field_tag "images[]", type: :file, multiple: true, id:"pics_select_button" %>
+<hr>
+        <%= file_field_tag "images[]", type: :file, multiple: true, id:"fileselect" %>
+        <h5>Uploaded images</h5>
         <output id="list"></output>
       </p>
 
@@ -57,7 +74,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= f.submit nil, id:"submitbutton", :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 article_packages_path, :class => 'btn btn-mini' %>
   </div>

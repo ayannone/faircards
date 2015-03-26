@@ -1,4 +1,31 @@
-<h1>Listing Article packages</h1>
+<h1 id="article_packages_header">Listing Article packages!</h1>
+
+<% @article_packages.each do |article_package| %>
+  <div class="article_packages">
+    <ul>
+      <li><%= article_package.article_package_number %></li>
+      <li><%= article_package.title %></li>
+      <li><%= article_package.description %></li>
+      <li><%= article_package.price %></li>
+    </ul>
+    <div>
+      <% counter=0 %>
+      <% article_package.pictures.each do |picture| %>
+        <% counter +=1 %>
+        <div id="<%= article_package.article_package_number %>_image_<%= counter %>" class="article_packages_image"><%= image_tag picture.image.url(:thumb) %></div>
+      <% end %>
+    </div>
+    <div id="article_packages_buttons">
+      <%= link_to 'Show', article_package, :class => 'btn' %>
+      <%= link_to 'Edit', edit_article_package_path(article_package), :class => 'btn btn-primary' %>
+      <%= link_to 'Destroy', article_package, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
+
+<div class="article_packages_image_original"></div>
+
+<br>
 
 <table>
   <thead>
@@ -11,18 +38,19 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @article_packages.each do |article_package| %>
+    <% @article_packages.each do |article_package| %>    
       <tr>
-        <td><%= image_tag article_package.pictures.first.image.url(:thumb) %></td>
+        <td><%= image_tag article_package.pictures.first.image.url(:thumb) %></td>        
         <td><%= article_package.article_package_number %></td>
         <td><%= article_package.title %></td>
-        <td><%= article_package.description %>/td>
+        <td><%= article_package.description %></td>
         <td><%= article_package.price %></td>
-        <td><%= link_to 'Show', article_package %></td>
-        <td><%= link_to 'Edit', edit_article_package_path(article_package) %></td>
-        <td><%= link_to 'Destroy', article_package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', article_package %>
+          <%= link_to 'Edit', edit_article_package_path(article_package) %>
+          <%= link_to 'Destroy', article_package, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -31,3 +59,29 @@
 <br>
 
 <%= link_to 'New Article package', new_article_package_path %>
+
+<script>
+  // $(".article_packages_image").hover(function(){
+  //   // $( this ).fadeOut( 100 );
+  //   // $( this ).fadeIn( 500 );
+  //   $('.article_packages_image_original').html("hello world!!");
+  //   // $('.article_packages_image_original').html("");
+  // })
+
+  $(".article_packages_image").each(function(){
+
+    
+    alert($(this).attr('id'));
+
+
+    $(this).on("mouseenter", "", function() {
+      $( this ).fadeOut( 1000 );
+    });
+    $(this).on("mouseleave", "", function() {
+      $( this ).fadeIn( 1000 );
+    });
+  });
+  
+
+
+</script>

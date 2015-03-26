@@ -11,6 +11,7 @@ class ArticlePackagesController < ApplicationController
 
   def new
     @article_package = ArticlePackage.new
+    @picture = Picture.new
   end
 
   def create
@@ -65,6 +66,9 @@ class ArticlePackagesController < ApplicationController
 
   def show
     @article_package = ArticlePackage.find(params[:id])
+    # not needed, because @article_package.pictures can be accessed automatically:
+    # @pictures = Pictures.find_by_article_package_id(params[@article_package.id])
+    
   end
 
   def destroy
@@ -73,7 +77,8 @@ class ArticlePackagesController < ApplicationController
   private
 
   def article_package_params
-    params.require(:article_package).permit(:article_package_number, :title, :description, :price, :images)
+    # params.require(:article_package).permit(:article_package_number, :title, :description, :price, :images)
+    params.require(:article_package).permit(:article_package_number, :title, :description, :price, picture_attributes: [:id, :code, :_destroy])
   end
 
 end
