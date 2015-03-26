@@ -65,3 +65,5 @@ gem 'jquery-ui-rails'
 gem 'dropzonejs-rails'
 
 gem "nested_form"
+
+gem 'puma'
