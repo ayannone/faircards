@@ -29,11 +29,11 @@
                                 <li class="more-menu dropdown">
                                     <a id="drop1" role="button" data-toggle="dropdown" href="/more"><strong>More Articles</strong><span class="caret"></span></a>
                                     <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop1">
-            
+
                                         <li role="presentation">
                                         <a role="menuitem" tabindex="-1" href="/posts">book marks</a>
                                         </li>
-                                    
+
                                         <li role="presentation">
                                         <a role="menuitem" tabindex="-1" href="/blog">doy bags</a>
                                         </li>
@@ -41,17 +41,17 @@
                                         <li role="presentation">
                                         <a role="menuitem" tabindex="-1" href="/blog">mini magnets</a>
                                         </li>
-                       
+
                                     </ul>
                                 </li>
                                 <li class="fairtrade-menu"><a href="/fairtrade"><strong>Fair Trade</strong></a></li>
-                                <li class="buy-menu"><a href="/buy"><strong>Buy</strong></a></li> 
+                                <li class="buy-menu"><a href="/buy"><strong>Buy</strong></a></li>
                             </ul>
-                         
 
-                        </div>  
-            
-                    </div>   
+
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -62,7 +62,7 @@
                         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
                         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
                     <% else %>
-                        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> | 
+                        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
                         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
                     <% end %>
 
@@ -80,13 +80,13 @@
 
         <div class="clearfix"></div>
         <footer>
-            <div class="pull-left copyright">&copy; 2014, Copyright Andrea Trapp |</div>
+            <div class="pull-left copyright">&copy; 2015, Copyright Andrea Trapp |</div>
             <div class="pull-left"><%= link_to "Administration", admin_panel_path %></div>
-           
+
             <div class="pull-right"><%= link_to "Terms of Service", terms_of_service_path %></div>
             <div class="pull-right"><%= link_to "Contact", contact_path %> |</div>
             <div class="pull-right"><%= link_to "About", about_path %> |</div>
-            
+
         </footer>
 
     </div>
